@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">TrabajoFinGradoJoseCorral</string>
+    <!-- Fragment Login -->
+    <string name="bienvenido">Bienvenido</string>
+    <string name="acceder_O_Crear">Inicia sesión o crea una cuenta nueva</string>
+    <string name="olvide_contra">He olvidado mi contraseña</string>
+    <string name="acceder">ACCEDER</string>
+    <string name="titulo_login">¿A que esperas para crear tu cuenta?</string>
+    <string name="crear">CREAR CUENTA</string>
+    <string name="correo">Correo electrónico</string>
+    <string name="contra">Contraseña</string>
+    <string name="bott_google">Iniciar sesión con Google</string>
+    <string name="signOut">Cerrar Sesion</string>
+    <!-- Fragment CorreoOlvidado -->
+    <string name="titulo_correo_olvidado">¿Olvidaste tu contraseña?</string>
+    <string name="texto_correo_olvidado">Introduce tu correo y te enviaremos un email con las instrucciones para que puedas cambiar tu contraseña</string>
+    <string name="continuar">CONTINUAR</string>
+    <!-- CorreoEnviado -->
+    <string name="titulo_correoenviado">REVISA TU CORREO</string>
+    <string name="direccion_correo_NOEnviado">¿No lo has recibido? Reenviar</string>
+    <string name="info_NoEnviado">Si no ves el correo en tu bandeja de entrada, revisa la carpeta de correo no deseado.</string>
+    <!-- Registro -->
+    <string name="titulo_registro">Crear cuenta</string>
+    <string name="numero_telf">Número de teléfono</string>
+    <string name="terminos_condiciones">Acepto los Términos y condiciones generales y Política de privacidad.</string>
+    <string name="requisitos_pass">Mínimo 8 caracteres combinando mayúsculas y minusculas.</string>
+    <string name="nombre">Nombre</string>
+    <!-- Validar email-->
+    <string name="texto_valEmail">ACABAMOS DE ENVIARTE UN EMAIL PARA QUE VALIDES TU CORREO ELECTRÓNICO</string>
+    <string name="reenviar">Reenviar email</string>
+    <string name="entiendo">ENTIENDO</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="default_web_client_id">242514564388-onms1b4av11ie3sb9to3mrhfscapnutl.apps.googleusercontent.com</string>
+    <string name="Bienvenido">Bienvenido</string>
+
+</resources>

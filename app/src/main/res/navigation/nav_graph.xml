@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragmen">
+
+    <fragment
+        android:id="@+id/homeFragmen"
+        android:name="com.josecorral.trabajofingradojosecorral.view.fragment.Home"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_first" >
+
+        <action
+            android:id="@+id/action_homeFragment_to_pedidoFragment"
+            app:destination="@id/pedidoFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/qrFragment"
+        android:name="com.josecorral.trabajofingradojosecorral.view.fragment.QRFragment"
+        android:label="SecFrag"
+        tools:layout="@layout/fragment_qr">
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/pedidoFragment"
+        android:name="com.josecorral.trabajofingradojosecorral.view.fragment.PedidoFragment"
+        android:label="SecFrag"
+        tools:layout="@layout/fragment_pedido">
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.josecorral.trabajofingradojosecorral.view.fragment.LoginFragment"
+        android:label="SecFrag"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_correoOlvidadoFragment"
+            app:destination="@id/correoOlvidadoFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_RegistroFragment"
+            app:destination="@id/registroFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_HomeFragment"
+            app:destination="@id/homeFragmen" />
+        <action
+            android:id="@+id/action_loginFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.josecorral.trabajofingradojosecorral.view.fragment.AdminFragment"
+        tools:layout="@layout/fragment_admin">
+        <action
+            android:id="@+id/action_adminFragment_to_agregarProductoFragment"
+            app:destination="@id/agregarProductoFragment" />
+        </fragment>
+    <fragment
+        android:id="@+id/correoOlvidadoFragment"
+        android:name="com.josecorral.trabajofingradojosecorral.view.fragment.CorreoOlvidadoFragment"
+        android:label="CorreoOlvidado"
+        tools:layout="@layout/fragment_correo_olvidado">
+        <action
+            android:id="@+id/action_CorreoOlvidadoFragment_to_CorreoEnvFragment"
+            app:destination="@id/correo_enviadoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/correo_enviadoFragment"
+        android:name="com.josecorral.trabajofingradojosecorral.view.fragment.CorreoEnviadoFragment"
+        android:label="CorreoEnviado"
+        tools:layout="@layout/fragment_correo_enviado">
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/registroFragment"
+        android:name="com.josecorral.trabajofingradojosecorral.view.fragment.RegistroFragment"
+        android:label="fragment_registro"
+        tools:layout="@layout/fragment_registro">
+        <action
+            android:id="@+id/action_registro_to_validarmail"
+            app:destination="@id/validarmailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/validarmailFragment"
+        android:name="com.josecorral.trabajofingradojosecorral.view.fragment.ValidarCorreoFragment"
+        android:label="CorreoEnviado"
+        tools:layout="@layout/fragment_validar_correo">
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/agregarProductoFragment"
+        android:name="com.josecorral.trabajofingradojosecorral.view.fragment.AgregarProductoFragment"
+        android:label="fragment_agregar_producto"
+        tools:layout="@layout/fragment_agregar_producto">
+
+        <action
+             android:id="@+id/action_agregarProductoFragment_to_homeFragment"
+            app:destination="@id/homeFragmen" />
+        </fragment>
+
+</navigation>

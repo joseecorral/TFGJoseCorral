@@ -1,0 +1,21 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.AdminFragment">
+
+    <Button
+        android:id="@+id/bntAgregarProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregar Producto" />
+
+    <Button
+        android:id="@+id/bntEliminarProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eliminar Producto"
+        android:layout_below="@id/bntAgregarProducto"
+        android:layout_marginTop="16dp" />
+
+</RelativeLayout>

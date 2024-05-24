@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "242514564388",
+    "firebase_url": "https://trabajofingradojosecorral-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "trabajofingradojosecorral",
+    "storage_bucket": "trabajofingradojosecorral.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242514564388:android:dcbc499cd3ab1f9e378fb1",
+        "android_client_info": {
+          "package_name": "com.josecorral.trabajofingradojosecorral"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "242514564388-onms1b4av11ie3sb9to3mrhfscapnutl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.josecorral.trabajofingradojosecorral",
+            "certificate_hash": "a36dbfc67f08d363fd12f1ca4cf8c5cdf8b05a0e"
+          }
+        },
+        {
+          "client_id": "242514564388-gc1r12sm6pmrpbd7ns2o4mr06gcm6moo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBi3jJMgav3LkvfmdoyUdK49T_4shT7Aas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "242514564388-gc1r12sm6pmrpbd7ns2o4mr06gcm6moo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
