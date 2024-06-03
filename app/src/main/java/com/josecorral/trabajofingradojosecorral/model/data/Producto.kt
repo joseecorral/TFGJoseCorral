@@ -9,6 +9,7 @@ data class Producto(
     @PrimaryKey
     @PropertyName("id") val id: String = "",
     @PropertyName("nombre") val nombre: String = "",
-    @PropertyName("precio") val precio: String = "",
-    @PropertyName("imagenUrl") val imagenUrl: String = ""
+    @PropertyName("precio") val precio: Float = 0f,
+    @PropertyName("imagenUrl") val imagenUrl: String = "",
+    @PropertyName("bloqueado") val bloqueado: Boolean = true
 )

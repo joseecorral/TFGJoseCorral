@@ -9,17 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.josecorral.trabajofingradojosecorral.R
 import com.josecorral.trabajofingradojosecorral.databinding.FragmentAgregarProductoBinding
-import com.josecorral.trabajofingradojosecorral.model.data.AppDatabase
 import com.josecorral.trabajofingradojosecorral.model.data.Producto
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import java.util.*
+import java.util.UUID
 
 class AgregarProductoFragment : Fragment() {
 
@@ -64,7 +60,7 @@ private fun agregarProducto() {
     val nombreProducto = binding.etNombreProducto.text.toString().trim()
     val precioProducto = binding.etPrecioProducto.text.toString().trim()
 
-    if (nombreProducto.isEmpty() || precioProducto.isEmpty() || imageUri == null) {
+    if (nombreProducto.isEmpty() || precioProducto.isEmpty()|| imageUri == null) {
         Toast.makeText(requireContext(), "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
         return
     }
@@ -75,15 +71,15 @@ private fun agregarProducto() {
             val producto = Producto(
                 id = UUID.randomUUID().toString(),
                 nombre = nombreProducto,
-                precio = precioProducto,
-                imagenUrl = uri.toString()
+                precio = precioProducto.toFloat(),
+                imagenUrl = uri.toString(),
+                bloqueado = true
             )
 
             FirebaseFirestore.getInstance().collection("productos")
                 .add(producto)
                 .addOnSuccessListener {
                     Toast.makeText(requireContext(), "Producto agregado exitosamente", Toast.LENGTH_SHORT).show()
-                    guardarProductoEnCarrito(producto)
                     findNavController().navigate(R.id.action_agregarProductoFragment_to_homeFragment)
                 }
                 .addOnFailureListener { e ->
@@ -93,12 +89,5 @@ private fun agregarProducto() {
     }.addOnFailureListener { e ->
         Toast.makeText(requireContext(), "Error al subir imagen: ${e.message}", Toast.LENGTH_SHORT).show()
     }
-}
-
-    private fun guardarProductoEnCarrito(producto: Producto) {
-        val db = AppDatabase.getDatabase(requireContext())
-        lifecycleScope.launch(Dispatchers.IO) {
-            db.productoDao().insertarProducto(producto)
-        }
     }
 }
