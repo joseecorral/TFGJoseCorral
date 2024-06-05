@@ -73,7 +73,7 @@ private fun agregarProducto() {
                 nombre = nombreProducto,
                 precio = precioProducto.toFloat(),
                 imagenUrl = uri.toString(),
-                bloqueado = true
+                bloqueado = false
             )
 
             FirebaseFirestore.getInstance().collection("productos")

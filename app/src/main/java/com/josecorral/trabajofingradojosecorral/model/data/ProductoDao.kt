@@ -1,6 +1,7 @@
 package com.josecorral.trabajofingradojosecorral.model.data
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -16,8 +17,8 @@ interface ProductoDao {
     @Query("SELECT * FROM productos")
     suspend fun obtenerTodosLosProductos(): List<Producto>
 
-    @Query("DELETE FROM productos WHERE id = :productoId")
-    suspend fun eliminarProducto(productoId: String)
+    @Delete
+    fun eliminarProducto(producto: Producto)
 
     @Query("DELETE FROM productos")
     suspend fun eliminarTodosLosProductos()

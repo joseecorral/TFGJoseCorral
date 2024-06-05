@@ -11,5 +11,5 @@ data class Producto(
     @PropertyName("nombre") val nombre: String = "",
     @PropertyName("precio") val precio: Float = 0f,
     @PropertyName("imagenUrl") val imagenUrl: String = "",
-    @PropertyName("bloqueado") val bloqueado: Boolean = true
+    @PropertyName("bloqueado") val bloqueado: Boolean = false
 )

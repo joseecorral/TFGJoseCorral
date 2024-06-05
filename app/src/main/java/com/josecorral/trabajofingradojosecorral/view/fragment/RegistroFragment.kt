@@ -59,6 +59,7 @@ class RegistroFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.bntRegistro.setOnClickListener {
+            val name = binding.nombreRegistro.text.toString().trim()
             val email = binding.correo.text.toString().trim()
             val password = binding.contra.editText?.text.toString().trim()
 
@@ -67,7 +68,7 @@ class RegistroFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            viewModel.signUp(email, password).addOnCompleteListener(requireActivity()) { task ->
+            viewModel.signUp(name,email, password).addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     val userId = task.result?.user?.uid ?: return@addOnCompleteListener
                     saveUserToFirestore(userId, email)

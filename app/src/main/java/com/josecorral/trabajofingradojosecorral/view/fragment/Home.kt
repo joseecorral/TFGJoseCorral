@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
+import com.josecorral.trabajofingradojosecorral.R
 import com.josecorral.trabajofingradojosecorral.databinding.FragmentFirstBinding
 import com.josecorral.trabajofingradojosecorral.model.data.AppDatabase
 import com.josecorral.trabajofingradojosecorral.model.data.Producto
@@ -63,12 +65,17 @@ class Home : Fragment() {
     }
 
     private fun agregarProductoAlCarrito(producto: Producto) {
+        if (producto.bloqueado) {
+            Toast.makeText(requireContext(), "Producto bloqueado, encuentra el QR", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val db = AppDatabase.getDatabase(requireContext())
         lifecycleScope.launch(Dispatchers.IO) {
             db.productoDao().insertarProducto(producto)
             withContext(Dispatchers.Main) {
                 Toast.makeText(requireContext(), "Producto agregado al carrito", Toast.LENGTH_SHORT).show()
-                // Aquí no navegamos automáticamente al PedidoFragment
+                findNavController().navigate(R.id.action_homeFragment_to_pedidoFragment)
             }
         }
     }

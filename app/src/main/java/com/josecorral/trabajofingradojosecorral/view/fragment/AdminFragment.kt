@@ -32,7 +32,7 @@ class AdminFragment : Fragment() {
 
         binding.bntEliminarProducto.setOnClickListener {
             // Lógica para eliminar un producto
-            //findNavController().navigate(R.id.action_adminFragment_to_eliminarProductoFragment)
+            findNavController().navigate(R.id.action_adminFragment_to_eliminarProductoFragment)
         }
     }
 }

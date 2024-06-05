@@ -67,6 +67,9 @@
         <action
             android:id="@+id/action_adminFragment_to_agregarProductoFragment"
             app:destination="@id/agregarProductoFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_eliminarProductoFragment"
+            app:destination="@+id/eliminarProductoFragment" />
         </fragment>
     <fragment
         android:id="@+id/correoOlvidadoFragment"
@@ -112,5 +115,16 @@
              android:id="@+id/action_agregarProductoFragment_to_homeFragment"
             app:destination="@id/homeFragmen" />
         </fragment>
+    <fragment
+        android:id="@+id/eliminarProductoFragment"
+        android:name="com.josecorral.trabajofingradojosecorral.view.fragment.EliminarProductoFragment"
+        android:label="EliminarProductoFragment"
+        tools:layout="@layout/fragment_eliminar_producto">
+
+        <action
+            android:id="@+id/action_eliminarProductoFragment_to_homeFragment"
+            app:destination="@+id/homeFragmen"/>
+    </fragment>
+
 
 </navigation>

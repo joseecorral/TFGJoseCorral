@@ -29,9 +29,9 @@
     <string name="texto_valEmail">ACABAMOS DE ENVIARTE UN EMAIL PARA QUE VALIDES TU CORREO ELECTRÓNICO</string>
     <string name="reenviar">Reenviar email</string>
     <string name="entiendo">ENTIENDO</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="default_web_client_id">242514564388-onms1b4av11ie3sb9to3mrhfscapnutl.apps.googleusercontent.com</string>
-    <string name="Bienvenido">Bienvenido</string>
+    <string name="Bienvenido">Bienvenido %1$s</string>
 
     <string name="pirce_format">%1$d€</string>
 </resources>

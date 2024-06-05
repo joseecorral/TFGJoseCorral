@@ -8,7 +8,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.josecorral.trabajofingradojosecorral.R
@@ -51,7 +53,43 @@ class PedidoFragment : Fragment() {
         }
 
         cargarProductosDelCarrito()
+        configurarItemTouchHelper()
     }
+    private fun configurarItemTouchHelper() {
+        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                eliminarProductoDelCarrito(position)
+            }
+        }
+
+        val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
+        itemTouchHelper.attachToRecyclerView(binding.recyclerView)
+    }
+
+    private fun eliminarProductoDelCarrito(position: Int) {
+        val productoAEliminar = productos[position]
+        productos.removeAt(position)
+        productoAdapter.notifyItemRemoved(position)
+
+        // Eliminar producto de la base de datos local
+        val db = AppDatabase.getDatabase(requireContext())
+        lifecycleScope.launch(Dispatchers.IO) {
+            db.productoDao().eliminarProducto(productoAEliminar)
+            withContext(Dispatchers.Main) {
+                Toast.makeText(requireContext(), "Producto eliminado", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
     private fun finalizarCompra() {
         val currentUser = auth.currentUser
         if (currentUser != null) {
@@ -63,6 +101,7 @@ class PedidoFragment : Fragment() {
             findNavController().navigate(R.id.action_pedidoFragment_to_loginFragment)
         }
     }
+
     private fun guardarCompraEnFirestore(userId: String) {
         // Obtener los productos del carrito y guardarlos en Firestore con la referencia al usuario
         val db = FirebaseFirestore.getInstance()
@@ -113,7 +152,7 @@ class PedidoFragment : Fragment() {
             withContext(Dispatchers.Main) {
                 productos.clear()
                 productoAdapter.notifyDataSetChanged()
-                Toast.makeText(requireContext(), "Carrito limpiado", Toast.LENGTH_SHORT).show()
+
             }
         }
     }
