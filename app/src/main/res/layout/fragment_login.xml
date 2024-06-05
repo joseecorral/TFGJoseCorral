@@ -66,14 +66,16 @@
         android:textSize="20sp"
         android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/bnt_google"
-        android:text="- - - - - - - - - - - o - - - - - - - - - - - "/>
+        android:text=" - - - - - - - - - o - - - - - - - - - "/>
 
     <EditText
         android:id="@+id/correo"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="@dimen/editx_height"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent=".75"
+        android:singleLine="true"
         android:layout_marginTop="20dp"
         android:paddingStart="15dp"
         android:paddingEnd="110dp"
@@ -127,23 +129,25 @@
         android:textColor="@color/black"
         android:layout_marginTop="10dp"/>
 
-    <TextView
-        android:id="@+id/separacion2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"
+    <View
+        android:id="@+id/separador"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@drawable/bg_separador"
+        app:layout_constraintStart_toStartOf="@id/bnt_signOut"
+        app:layout_constraintEnd_toEndOf="@id/bnt_signOut"
         app:layout_constraintTop_toBottomOf="@id/olvidar_pass"
-        android:text="- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"/>
+
+        android:layout_marginTop="20dp"
+        />
+
     <TextView
         android:id="@+id/titulo_regis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/separacion2"
+        app:layout_constraintTop_toBottomOf="@id/separador"
         android:text="@string/titulo_registro"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
@@ -163,16 +167,7 @@
         app:layout_constraintEnd_toEndOf="@id/correo"
         app:layout_constraintStart_toStartOf="@id/correo"
         app:layout_constraintTop_toBottomOf="@id/titulo_regis" />
-    <TextView
-        android:id="@+id/separacion3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/olvidar_pass"
-        android:text="- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"/>
+
     <Button
         android:id="@+id/bnt_signOut"
         android:layout_width="0dp"

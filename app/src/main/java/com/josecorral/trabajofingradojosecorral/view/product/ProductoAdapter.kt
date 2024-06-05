@@ -3,6 +3,7 @@ package com.josecorral.trabajofingradojosecorral.view.product
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.josecorral.trabajofingradojosecorral.databinding.ItemProductoBinding
@@ -35,6 +36,7 @@ class ProductoAdapter(
             binding.root.setOnClickListener {
                 onProductoClick(producto)
             }
+            binding.cvLock.isVisible = producto.bloqueado
         }
     }
 }

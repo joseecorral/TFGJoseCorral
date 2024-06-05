@@ -56,12 +56,14 @@ class Home : Fragment() {
                     val producto = document.toObject(Producto::class.java)
                     productos.add(producto)
                 }
+
                 productoAdapter.notifyDataSetChanged()
             }
             .addOnFailureListener { exception ->
                 Toast.makeText(requireContext(), exception.localizedMessage, Toast.LENGTH_SHORT)
                     .show()
             }
+
     }
 
     private fun agregarProductoAlCarrito(producto: Producto) {

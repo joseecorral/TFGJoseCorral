@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             tools:listitem="@layout/item_producto"
             tools:itemCount="3"/>
+
         <Button
             android:id="@+id/btnFinalizarCompra"
             android:layout_width="wrap_content"
